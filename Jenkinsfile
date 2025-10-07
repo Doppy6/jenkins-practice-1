@@ -16,7 +16,7 @@ pipeline{
 
         stage('Run Tests') {
             steps {
-                sh 'pytest tes_app.py'
+                sh 'pytest test_app.py'
             }
         }
         stage('Deploy') {
