@@ -16,7 +16,7 @@ pipeline{
 
         stage('Deploy') {
             when {
-                anyof {
+                anyOf {
                     branch 'main'
                     branch pattern: "release/.*", comparator: "REGEXP"
                 }
