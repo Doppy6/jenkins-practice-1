@@ -31,7 +31,7 @@ pipeline{
         success {
             script {
                 def payload = [
-                    content "✅ Build SUCCES on '${env.BRANCH_NAME}'/nURL: ${env.BUILD_URL}"
+                    content: "✅ Build SUCCES on '${env.BRANCH_NAME}'/nURL: ${env.BUILD_URL}"
                 ]
                 httpRequest(
                     httpMode: 'POST'
