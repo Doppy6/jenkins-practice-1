@@ -2,19 +2,13 @@ pipeline{
     agent {
         docker{
             image 'python:3.10'
+            args '-u root'
         }
     }
-    
-    environment{
-        VENV = 'venv'
-    }
-
 
     stages{
-        stage('Setup Environment & Install Dependencies') {
+        stage(Install Dependencies') {
             steps {
-                sh 'python -m venv $VENV'
-                sh '. $VENV/bin/activate'
                 sh 'pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
             }
@@ -22,7 +16,6 @@ pipeline{
 
         stage('Run Tests') {
             steps {
-                sh '. $VENV/bin/activate'
                 sh 'pytest tes_app.py'
             }
         }
